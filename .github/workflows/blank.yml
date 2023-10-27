@@ -17,17 +17,17 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   my-job:
-    name: Run MATLAB Script
+    name: Run MATLAB Commands
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v1
-      - name: Run script
+      - name: Run commands
         uses: matlab-actions/run-command@v1
         with:
-          command: psych20aHW8.m
+          command: results = runtests, assertSuccess(results);
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
